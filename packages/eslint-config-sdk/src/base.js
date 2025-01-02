@@ -52,6 +52,8 @@ module.exports = {
 
         '@typescript-eslint/consistent-type-imports': 'error',
 
+        '@typescript-eslint/no-unnecessary-condition': 'error',
+
         // Private and protected members of a class should be prefixed with a leading underscore.
         // typeLike declarations (class, interface, typeAlias, enum, typeParameter) should be
         // PascalCase.

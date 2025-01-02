@@ -33,13 +33,12 @@ export function makeBaseNPMConfig(options = {}) {
     esModuleInterop = false,
     hasBundles = false,
     packageSpecificConfig = {},
-    addPolyfills = true,
     sucrase = {},
     bundledBuiltins = [],
   } = options;
 
   const nodeResolvePlugin = makeNodeResolvePlugin();
-  const sucrasePlugin = makeSucrasePlugin({}, { disableESTransforms: !addPolyfills, ...sucrase });
+  const sucrasePlugin = makeSucrasePlugin({}, { disableESTransforms: true, ...sucrase });
   const debugBuildStatementReplacePlugin = makeDebugBuildStatementReplacePlugin();
   const importMetaUrlReplacePlugin = makeImportMetaUrlReplacePlugin();
   const cleanupPlugin = makeCleanupPlugin();
@@ -69,8 +68,7 @@ export function makeBaseNPMConfig(options = {}) {
       // true` in CJS modules makes it so that Jest <= 29.2.2 crashes when trying to mock generated `@sentry/xxx`
       // packages. See https://github.com/getsentry/sentry-javascript/pull/6043.)
       generatedCode: {
-        preset: 'es2015',
-        symbols: false,
+        preset: 'es2015'
       },
 
       // don't add `"use strict"` to the top of cjs files

@@ -9,8 +9,6 @@ const variants = makeNPMConfigVariants(
         exports: 'named',
       },
     },
-    // Astro is Node 18+ no need to add polyfills
-    addPolyfills: false,
   }),
 );
 
