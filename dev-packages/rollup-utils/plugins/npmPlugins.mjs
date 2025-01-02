@@ -29,6 +29,7 @@ export function makeSucrasePlugin(options = {}, sucraseOptions = {}) {
     },
     {
       transforms: ['typescript', 'jsx'],
+      disableESTransforms: true,
       ...sucraseOptions,
     },
   );
